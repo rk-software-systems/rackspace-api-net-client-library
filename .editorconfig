@@ -1,0 +1,18 @@
+﻿[*.cs]
+
+# CA1056: URI properties should not be strings
+dotnet_diagnostic.CA1056.severity = none
+
+# CA1812: Avoid uninstantiated internal classes
+dotnet_diagnostic.CA1812.severity = none
+
+# CA2007: Consider calling ConfigureAwait on the awaited task
+dotnet_diagnostic.CA2007.severity = none
+
+# CA2227: Collection properties should be read only
+dotnet_diagnostic.CA2227.severity = none
+
+vsspell_ignored_words_26634BBA4ABD440BAD405E71DC9AE199 = Rackspace|Cdn|Ssl
+
+# IDE0305: Use collection expression for fluent
+dotnet_diagnostic.IDE0305.severity = none
