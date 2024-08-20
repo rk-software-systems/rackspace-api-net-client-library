@@ -17,18 +17,18 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <Version>8.0.1-preview.1</Version>
+    <Version>8.0.1-preview.2</Version>
   </PropertyGroup>
 
   <PropertyGroup>
     <Company>RK Software Systems</Company>
-    <Description>This package contains logic that can run API request parameter validators automatically.</Description>
+    <Description>This repository contains code for .NET wrapper of Rackspace API.</Description>
     <RepositoryUrl>https://github.com/rk-software-systems/rk-api-request-validation</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Fluent Validation, RKSoftware</PackageTags>
+    <PackageTags>Rackspace, RKSoftware</PackageTags>
     <PackageProjectUrl>https://github.com/rk-software-systems/rk-api-request-validation</PackageProjectUrl>
     <PackageIcon>company-logo.png</PackageIcon>
-    <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
