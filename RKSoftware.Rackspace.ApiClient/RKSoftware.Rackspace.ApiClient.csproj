@@ -12,6 +12,36 @@
     <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Version>8.0.1-preview.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>RK Software Systems</Company>
+    <Description>This package contains logic that can run API request parameter validators automatically.</Description>
+    <RepositoryUrl>https://github.com/rk-software-systems/rk-api-request-validation</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Fluent Validation, RKSoftware</PackageTags>
+    <PackageProjectUrl>https://github.com/rk-software-systems/rk-api-request-validation</PackageProjectUrl>
+    <PackageIcon>company-logo.png</PackageIcon>
+    <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\company-logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />

@@ -2,7 +2,7 @@
 
 namespace RKSoftware.Rackspace.ApiClient;
 
-internal sealed class RackspaceLoggingConstants
+internal static class RackspaceLoggingConstants
 {
     internal const int RequestError             = 1111111;
     internal const int AccessTokenNotFoundError = 1111112;

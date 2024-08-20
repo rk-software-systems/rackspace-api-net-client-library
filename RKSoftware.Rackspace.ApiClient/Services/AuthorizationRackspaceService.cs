@@ -13,7 +13,7 @@ public class AuthorizationRackspaceService : IAuthorizationRackspaceService
     
     private const string _cloudFilesCdn = "cloudFilesCDN";
     private const string _cloudFiles = "cloudFiles";
-
+    private static readonly Uri _tokenUrl = new ("https://identity.api.rackspacecloud.com/v2.0/tokens/");
     #endregion
 
     #region fields   
@@ -59,7 +59,7 @@ public class AuthorizationRackspaceService : IAuthorizationRackspaceService
 }}
 ";
         using var content = new StringContent(body, Encoding.UTF8, MediaTypeNames.Application.Json);
-        var response = await client.PostAsync(_rackspaceSettings.TokenUrl, content);
+        var response = await client.PostAsync(_tokenUrl, content);
         if(!response.IsSuccessStatusCode)
         {
             var str = await response.Content.ReadAsStringAsync();

@@ -3,6 +3,9 @@
 # CA1056: URI properties should not be strings
 dotnet_diagnostic.CA1056.severity = none
 
+# CA1812: Avoid uninstantiated internal classes
+dotnet_diagnostic.CA1812.severity = none
+
 # CA2007: Consider calling ConfigureAwait on the awaited task
 dotnet_diagnostic.CA2007.severity = none
 
