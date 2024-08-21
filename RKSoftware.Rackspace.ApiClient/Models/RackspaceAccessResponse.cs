@@ -67,5 +67,5 @@ internal sealed class Endpoint
 
     public string? PublicURL { get; set; }
 
-    public required string Region { get; set; }
+    public string? Region { get; set; }
 }
