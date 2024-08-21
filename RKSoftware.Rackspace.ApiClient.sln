@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CAC04970-63E6-4E52-8AF2-01F98F0DA4C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RKSoftware.Rackspace.ApiClient.ResearchTests", "Tests\RKSoftware.Rackspace.ApiClient.ResearchTests\RKSoftware.Rackspace.ApiClient.ResearchTests.csproj", "{FE48738C-CC01-4D7B-935F-C0E24C10BCF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,9 +28,16 @@ Global
 		{79BDF7F5-9940-444E-BF56-54FCF1DDED13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79BDF7F5-9940-444E-BF56-54FCF1DDED13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79BDF7F5-9940-444E-BF56-54FCF1DDED13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE48738C-CC01-4D7B-935F-C0E24C10BCF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE48738C-CC01-4D7B-935F-C0E24C10BCF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE48738C-CC01-4D7B-935F-C0E24C10BCF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE48738C-CC01-4D7B-935F-C0E24C10BCF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FE48738C-CC01-4D7B-935F-C0E24C10BCF3} = {CAC04970-63E6-4E52-8AF2-01F98F0DA4C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34C4FF65-5D7B-4CF9-A49F-2BDBCA55E9FF}
