@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Globalization;
+using System.Net.Http.Headers;
 using Microsoft.Extensions.Logging;
 
 namespace RKSoftware.Rackspace.ApiClient;
@@ -85,6 +86,11 @@ public class ObjectRackspaceService(IHttpClientFactory httpClientFactory, ILogge
         var client = _httpClientFactory.CreateClient(nameof(Rackspace));
         client.DefaultRequestHeaders.TransferEncodingChunked = true;
         client.DefaultRequestHeaders.Add(RackspaceConstants.AuthTokenHeader, login.Token);
+
+        if(obj.DeleteAfter.HasValue)
+        {
+            client.DefaultRequestHeaders.Add("X-Delete-After", obj.DeleteAfter.Value.ToString(CultureInfo.InvariantCulture));
+        }
 
         var baseUrl = login.Endpoints.GetValueOrDefault(obj.Region);
         if (baseUrl == null)
