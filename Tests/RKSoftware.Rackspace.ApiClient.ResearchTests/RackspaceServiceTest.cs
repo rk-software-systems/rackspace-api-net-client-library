@@ -25,7 +25,7 @@ public class RackspaceServiceTest
     public RackspaceServiceTest()
     {
         var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.Development.json")
+                .AddJsonFile("appsettings.json")
                 .Build();
 
         var services = new ServiceCollection();
@@ -176,6 +176,24 @@ public class RackspaceServiceTest
             ContentType = "video/mp4"
         };
         await _objectRackspaceService.UploadObject(loginResponse, obj);
+    }
+
+    [Fact]
+    public async Task PurgeCdnObjectTest()
+    {
+        var loginResponse = await _authorizationRackspaceService.Login();
+        Assert.NotNull(loginResponse);
+
+        var containerName = "26";
+        var objectName = "00__big_buck_bunny_720p_1mb.mp4";
+
+        var obj = new RackspaceObjectModel
+        {
+            ContainerName = containerName,
+            Name = objectName,
+        };
+
+        await _objectRackspaceService.PurgeCdnObject(loginResponse, obj);
     }
 
     #endregion
