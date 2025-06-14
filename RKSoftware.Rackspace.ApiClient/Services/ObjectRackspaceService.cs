@@ -15,7 +15,7 @@ public class ObjectRackspaceService(IHttpClientFactory httpClientFactory, ILogge
 
     #region methods
 
-    public async Task<Stream?> GetObject(RackspaceLoginResponse login, RackspaceObjectModel obj)
+    public async Task<Stream?> GetObject(RackspaceLoginResponse login, BaseRackspaceObjectModel obj)
     {
         ArgumentNullException.ThrowIfNull(login, nameof(login));
 
@@ -44,7 +44,7 @@ public class ObjectRackspaceService(IHttpClientFactory httpClientFactory, ILogge
         return await response.Content.ReadAsStreamAsync();
     }
 
-    public async Task<bool> DeleteObject(RackspaceLoginResponse login, RackspaceObjectModel obj)
+    public async Task<bool> DeleteObject(RackspaceLoginResponse login, BaseRackspaceObjectModel obj)
     {
         ArgumentNullException.ThrowIfNull(login, nameof(login));
 
@@ -119,11 +119,36 @@ public class ObjectRackspaceService(IHttpClientFactory httpClientFactory, ILogge
 
         return response.IsSuccessStatusCode;
     }
+
+    public async Task<bool> PurgeCdnObject(RackspaceLoginResponse login, BaseRackspaceObjectModel obj)
+    {
+        ArgumentNullException.ThrowIfNull(login, nameof(login));
+        ArgumentNullException.ThrowIfNull(obj, nameof(obj));
+
+        var client = _httpClientFactory.CreateClient(nameof(Rackspace));
+        client.DefaultRequestHeaders.Add(RackspaceConstants.AuthTokenHeader, login.Token);
+
+        var baseUrl = login.CdnEndpoints.GetValueOrDefault(obj.Region);
+        if (baseUrl == null)
+        {
+            RackspaceLoggingConstants.LogCdnEndpointUrlNotFoundError(_logger, obj.Region, nameof(PurgeCdnObject), null);
+            return false;
+        }
+        var url = GetObjectUrl(baseUrl, obj);
+        var response = await client.DeleteAsync(url);
+        if (!response.IsSuccessStatusCode)
+        {
+            var str = await response.Content.ReadAsStringAsync();
+            RackspaceLoggingConstants.LogRequestError(_logger, nameof(PurgeCdnObject), str, null);
+        }
+
+        return response.IsSuccessStatusCode;
+    }
     #endregion
 
     #region helpers
 
-    private static Uri GetObjectUrl(string baseUrl, RackspaceObjectModel obj)
+    private static Uri GetObjectUrl(string baseUrl, BaseRackspaceObjectModel obj)
     {
         string url;
         if (baseUrl.EndsWith('/'))
